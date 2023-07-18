@@ -91,8 +91,8 @@ export default class TwitterApiv1ReadOnly extends TwitterApiSubClient {
     return this.get<TweetV1>('statuses/show.json', { tweet_mode: 'extended', id: tweetId, ...options });
   }
 
-  statusRetweets(tweetId: string, options = {}) {
-    return this.get(`statuses/retweets/${tweetId}.json`, options);
+  public tatusRetweets(tweetId: string, options = {}) {
+    return this.get<TweetV1[]>(`statuses/retweets/${tweetId}.json`, options);
   }
 
   /**
