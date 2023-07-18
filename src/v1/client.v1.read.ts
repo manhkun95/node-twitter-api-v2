@@ -91,6 +91,10 @@ export default class TwitterApiv1ReadOnly extends TwitterApiSubClient {
     return this.get<TweetV1>('statuses/show.json', { tweet_mode: 'extended', id: tweetId, ...options });
   }
 
+  statusRetweets(tweetId: string, options = {}) {
+    return this.get(`statuses/retweets/${tweetId}.json`, options);
+  }
+
   /**
    * Returns fully-hydrated Tweet objects for up to 100 Tweets per request.
    * https://developer.twitter.com/en/docs/twitter-api/v1/tweets/post-and-engage/api-reference/get-statuses-lookup
